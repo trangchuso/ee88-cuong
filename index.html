@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EE88 Nhà Cái</title>
+    
+    <!-- Link thư viện icon Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Nhúng file CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Nhúng file JS bằng thuộc tính defer (khuyên dùng) -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+    <!-- Hàng trên cùng (Top Bar) -->
+    <div class="header-top hide-on-mobile">
+        <!-- Nút Kho báu chỉ sử dụng hình ảnh gốc, không chữ -->
+<button class="btn-treasure-custom">
+    <img src="./images/download1.png" alt="Kho báu">
+</button>
+        <button class="btn-text">🎥 Thương hiệu</button>
+        <button class="btn-text">💬 Phòng chat</button>
+        <span class="time-text">01/09/2026 11:50:56pm (GMT+7)</span>
+    </div>
+
+    <!-- Hàng chính: Logo, Input và Nút bấm -->
+    <div class="header-main">
+        <div class="logo">
+            <img src="./images/logoweb.png" alt="Logo Trang Web">
+        </div>
+        
+        <div class="auth-area">
+            
+
+            <!-- Cụm nút bấm -->
+            <div class="auth-buttons">
+                <!-- Nút Đăng nhập có nền viền trắng -->
+                <button class="btn-login btn-white-border" onclick="openModal('loginModal')">Đăng nhập</button>
+                <button class="btn-register" onclick="openModal('registerModal')">Đăng ký</button>
+                <button class="btn-outline hide-on-mobile">🎮 Chơi thử</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Thanh điều hướng danh mục (Chỉ hiện trên máy tính) -->
+<nav class="category-nav hide-on-mobile">
+    <div class="nav-container">
+        <ul>
+            <li>
+                <a href="#" class="active">
+                    <i class="fa-solid fa-house nav-icon"></i> Trang chủ
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bullseye nav-icon"></i> Xổ số
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-clover nav-icon"></i> Luckywin
+                    <span class="hot-badge">HOT</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-dice nav-icon"></i> Casino
+                    <span class="hot-badge">HOT</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-coins nav-icon"></i> Nổ hũ
+                    <span class="hot-badge">HOT</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-fish nav-icon"></i> Bắn cá
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-futbol nav-icon"></i> Thể thao
+                    <span class="hot-badge">HOT</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-clone nav-icon"></i> Game bài
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-feather nav-icon"></i> Đá gà
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gift nav-icon"></i> Ưu đãi
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-handshake nav-icon"></i> Đại lý
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-headset nav-icon"></i> Hỗ trợ
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <!-- Banner Trượt Tự Động -->
+<section class="hero-banner">
+    <div class="slider-container">
+        <!-- Khối chứa 8 ảnh trượt ngang -->
+        <div class="slider-wrapper" id="bannerSlider">
+            <div class="slide"><img src="./images/banner1.png" alt="Banner 1"></div>
+            <div class="slide"><img src="./images/banner2.png" alt="Banner 2"></div>
+            <div class="slide"><img src="./images/banner3.jpg" alt="Banner 3"></div>
+            <div class="slide"><img src="./images/banner4.png" alt="Banner 4"></div>
+            <div class="slide"><img src="./images/banner5.png" alt="Banner 5"></div>
+            <div class="slide"><img src="./images/banner6.png" alt="Banner 6"></div>
+            <div class="slide"><img src="./images/banner7.png" alt="Banner 7"></div>
+            <div class="slide"><img src="./images/banner8.png" alt="Banner 8"></div>
+        </div>
+        
+        <!-- Các thanh gạch ngang (dots) điều hướng bên dưới -->
+        <div class="slider-dots" id="sliderDots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+        </div>
+    </div>
+</section>
+<!-- Phần Game Nổi Bật (Chỉ hiện trên máy tính) -->
+<section class="featured-games hide-on-mobile">
+    <div class="featured-container">
+        
+        <!-- Tiêu đề trang trí -->
+        <div class="section-header-custom">
+            <div class="divider-line"></div>
+            <i class="fa-solid fa-diamond diamond-icon"></i>
+            <div class="title-box">Game nổi bật</div>
+            <i class="fa-solid fa-diamond diamond-icon"></i>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Khung chứa lưới game và 2 nút mũi tên -->
+        <div class="featured-slider-area">
+            <button class="nav-arrow left"><i class="fa-solid fa-angle-left"></i></button>
+            
+            <div class="featured-grid">
+                <!-- Thẻ Game 1 -->
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/14f604fc692bf99a7dbd2df66630063e.png" alt="Tài Xỉu MD5">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>TÀI XỈU MD5</p>
+                </div>
+                
+                <!-- Thẻ Game 2 -->
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/f0a9c9070944dd10f81bc8255259db40.png" alt="Tài Xỉu">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>TÀI XỈU</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/cd2473d23f6f68c9ebab5e5d05665972.png" alt="LONG HỔ 2">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>LONG HỔ 2</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/b72764613de5efba296dde0645837d7d.png" alt="SICBO">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>SICBO</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/427f8c7cd8e6a146122b06ab5d2f6d40.png" alt="ĐƯỜNG MẠT CHƯỢC">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>ĐƯỜNG MẠT CHƯỢC</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/15683444ed1002e39da84c70cd8f45cb.png" alt="TÂY DU KÝ">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>TÂY DU KÝ</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/0cd0d2c28294928fb5b664af3ec0d379.png" alt="BẮN CÁ">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>BẮN CÁ</p>
+                </div>                
+                <!-- Bạn hãy copy thẻ div class="feature-card" ở trên và dán thêm 12 lần nữa để đủ 14 game cho 2 hàng nhé -->
+                <!-- Thẻ Game 3 (Ví dụ) -->
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/6cf1a4fec68a1f7d5c1958f2666515cb.png" alt="XÓC ĐĨA">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>XÓC ĐĨA</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/bf32a1c6bd335028bbbfd63d6e008c6b.png" alt="BẦU CUA">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>BẦU CUA</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/ec74201aad847041310204856018dec6.png" alt="XÓC ĐĨA VIP">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>XÓC ĐĨA VIP</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/00686a84ed8b0fb03cc6bb6603650ff6.png" alt="Siêu Cấp Ace">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>Siêu Cấp Ace</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/3e7a39c5d74950658a053fc7e1431bad.png" alt="TẾT NGUYÊN ĐÁN">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>TẾT NGUYÊN ĐÁN</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/1085bd8b40fc7ccacbaa5bf94a10e179.png" alt="TÀI XỈU 3 Phút">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>TÀI XỈU 3 Phút</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-img-wrapper">
+                        <img src="./images/866add03e494fab708a68f656a0d1dbd.png" alt="MATKA">
+                        <div class="hover-overlay">
+                            <button class="btn-play">Vào trò chơi</button>
+                        </div>
+                    </div>
+                    <p>MATKA</p>
+                </div>
+                
+            </div>
+            
+            <button class="nav-arrow right"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+</section>
+<!-- Phần Casino Trực Tuyến (Chỉ hiện trên máy tính) -->
+<section class="online-casino hide-on-mobile">
+    <div class="casino-container">
+        
+        <!-- Tiêu đề trang trí -->
+        <div class="section-header-custom">
+            <div class="divider-line"></div>
+            <i class="fa-solid fa-diamond diamond-icon"></i>
+            <div class="title-box">Casino trực tuyến</div>
+            <i class="fa-solid fa-diamond diamond-icon"></i>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Khung lưới chứa 4 sảnh casino lớn -->
+        <div class="casino-grid">
+            
+            <!-- Sảnh 1 -->
+            <div class="casino-card">
+                <!-- Ảnh nền của khung sảnh (Bạn có thể đổi tên file ở đây) -->
+                <img src="./images/bg_live_item.1ac90970.png" alt="Background" class="casino-bg-img">
+                <!-- Hình ảnh người mẫu đại diện -->
+                <img src="./images/ae2.png" alt="Model Sexy" class="casino-model">
+                <div class="casino-info">
+                    <img src="./images/ae.png" alt="Sexy Logo" class="casino-logo">
+                    <span class="casino-sub">Phí hoàn tối đa 1.2%</span>
+                    <button class="btn-play-casino">Vào trò chơi</button>
+                </div>
+            </div>
+
+            <!-- Sảnh 2 -->
+            <div class="casino-card">
+                <img src="./images/bg_live_item.1ac90970.png" alt="Background" class="casino-bg-img">
+                <img src="./images/db2.png" alt="Model DB" class="casino-model">
+                <div class="casino-info">
+                    <img src="./images/db.png" alt="DB Logo" class="casino-logo">
+                    <span class="casino-sub">Phí hoàn tối đa 1.2%</span>
+                    <button class="btn-play-casino">Vào trò chơi</button>
+                </div>
+            </div>
+
+            <!-- Sảnh 3 -->
+            <div class="casino-card">
+                <img src="./images/bg_live_item.1ac90970.png" alt="Background" class="casino-bg-img">
+                <img src="./images/d1g.png" alt="Model DG" class="casino-model">
+                <div class="casino-info">
+                    <img src="./images/dg.png" alt="DG Logo" class="casino-logo">
+                    <span class="casino-sub">Phí hoàn tối đa 1.2%</span>
+                    <button class="btn-play-casino">Vào trò chơi</button>
+                </div>
+            </div>
+
+            <!-- Sảnh 4 -->
+            <div class="casino-card">
+                <img src="./images/bg_live_item.1ac90970.png" alt="Background" class="casino-bg-img">
+                <img src="./images/wm1.png" alt="Model WM" class="casino-model">
+                <div class="casino-info">
+                    <img src="./images/wm.png" alt="WM Logo" class="casino-logo">
+                    <span class="casino-sub">Phí hoàn tối đa 1.2%</span>
+                    <button class="btn-play-casino">Vào trò chơi</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Phần Chân Trang / Footer (Chỉ hiển thị trên máy tính) -->
+<footer class="main-footer-bottom hide-on-mobile">
+    <div class="footer-container">
+        
+        <!-- Lưới các logo nhà phát hành game (3 hàng) -->
+        <div class="provider-logos-grid">
+            <!-- Hàng 1 -->
+            <img src="./images/esport.png" alt="AE Esports">
+            <img src="./images/ae.png" alt="AE Gaming">
+            <img src="./images/aesport.png" alt="AE Sport+">
+            <img src="./images/b_game_4.e7540b48.png" alt="PlayAce">
+            <img src="./images/ameba.png" alt="Ameba">
+            <img src="./images/bbin.png" alt="BBIN">
+            <img src="./images/wmcasino.png" alt="WM Casino">
+            <img src="./images/bti.png" alt="BTi">
+            <img src="./images/cmd368.png" alt="CMD368">
+
+            <!-- Hàng 2 -->
+            <img src="./images/cq9.png" alt="CQ9">
+            <img src="./images/dggaming.png" alt="Dream Gaming">
+            <img src="./images/ebet.png" alt="EBET">
+            <img src="./images/evolution.png" alt="Evolution">
+            <img src="./images/gw.png" alt="GW">
+            <img src="./images/gameplay.png" alt="Gameplay">
+            <img src="./images/jdb.png" alt="JDB">
+            <img src="./images/fc.png" alt="Fa Chai">
+            <img src="./images/laelotto.png" alt="AE Lotto">
+
+            <!-- Hàng 3 -->
+            <img src="./images/jili.png" alt="JILI">
+            <img src="./images/kagaming.png" alt="KA Gaming">
+            <img src="./images/kingmaker.png" alt="Kingmaker">
+            <img src="./images/v8poker.png" alt="V8 Poker">
+            <img src="./images/microgaming.png" alt="Microgaming">
+            <img src="./images/ob.png" alt="OB">
+            <img src="./images/pg.png" alt="PG Soft">
+        </div>
+
+        <!-- Đường kẻ ngang phân cách -->
+        <div class="footer-divider"></div>
+
+        <!-- Nội dung cảnh báo và giới thiệu nhà cái -->
+        <div class="footer-disclaimer">
+            <p>Cờ bạc có thể gây nghiện, hãy chơi có trách nhiệm. Để biết thông tin về các biện pháp hỗ trợ, vui lòng truy cập trang trợ giúp của chúng tôi.</p>
+            <p>Chúng tôi được cấp giấy phép hợp pháp do Ủy ban Giám sát GC (GamblingCommission) của Vương quốc Anh (MGA) và (PAGCOR) do Chính phủ Philippines cấp. Công ty đăng ký tại Quần đảo Virgin thuộc Anh, được các hiệp hội quốc tế công nhận. Vui lòng đảm bảo bạn đủ 18 tuổi trở lên trước khi đăng ký tham gia trò chơi!</p>
+        </div>
+
+        <!-- Các huy hiệu chứng nhận (BVI, PAGCOR, MGA) -->
+        <div class="footer-badges">
+            <div class="badge-item">
+                <img src="./images/badge-bvi.png" alt="Chứng nhận BVI">
+                <span>Chứng nhận BVI</span>
+            </div>
+            <div class="badge-item">
+                <img src="./images/badge-pagcor.png" alt="Chứng chỉ PAGCOR">
+                <span>Chứng chỉ (PAGCOR) Philippines</span>
+            </div>
+            <div class="badge-item">
+                <img src="./images/badge-mga.png" alt="Giấy phép Malta">
+                <span>Giấy phép Malta</span>
+            </div>
+        </div>
+
+        <!-- Menu liên kết nhỏ và bản quyền -->
+        <div class="footer-bottom-links">
+            <a href="#">Trung tâm trợ giúp</a>
+            <span>|</span>
+            <a href="#">Liên hệ chúng tôi</a>
+            <span>|</span>
+            <a href="#">Điều khoản và quy định</a>
+        </div>
+
+        <div class="footer-copyright">
+            @ 2014-2026 v6.1.8-260725 XOSO66. All rights reserved
+        </div>
+
+    </div>
+</footer>
+<!-- Thanh sảnh game (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-category-menu show-on-mobile">
+    <div class="menu-scroll-wrapper">
+        
+        <!-- Mục 1: Đang chọn (Có viền cam class="active") -->
+        <a href="#" class="menu-item active">
+            <img src="./images/hot.png" alt="Gợi ý">
+            <span>Gợi ý</span>
+        </a>
+        
+        <!-- Mục 2 -->
+        <a href="#" class="menu-item">
+            <img src="./images/xoso.png" alt="Xổ số">
+            <span>Xổ số</span>
+        </a>
+        
+        <!-- Mục 3: Kèm nhãn NEW -->
+        <a href="#" class="menu-item">
+            <img src="./images/luckywin.png" alt="Luckywin">
+            <span class="new-badge">NEW</span>
+            <span>Luckywin</span>
+        </a>
+        
+        <!-- Mục 4 -->
+        <a href="#" class="menu-item">
+            <img src="./images/casino.png" alt="Casino">
+            <span>Casino</span>
+        </a>
+        
+        <!-- Mục 5 -->
+        <a href="#" class="menu-item">
+            <img src="./images/nỗ hũ.png" alt="Nổ hũ">
+            <span>Nổ hũ</span>
+        </a>
+        
+        <!-- Mục 6 -->
+        <a href="#" class="menu-item">
+            <img src="./images/bắn cá.png" alt="Bắn cá">
+            <span>Bắn cá</span>
+        </a>
+        <a href="#" class="menu-item">
+            <img src="./images/thể thao.png" alt="Thể Thao">
+            <span>Thể Thao</span>
+        </a>
+        <a href="#" class="menu-item">
+            <img src="./images/game bài.png" alt="Game Bài">
+            <span>Game Bài</span>
+        </a>
+        <a href="#" class="menu-item">
+            <img src="./images/đá gà.png" alt="Đá Gà">
+            <span>Đá Gà</span>
+        </a>
+    </div>
+</section>
+<!-- Phần Game Được Đề Xuất (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-recommended show-on-mobile">
+    <!-- Tiêu đề -->
+    <div class="mobile-section-title">
+        <span class="orange-bar"></span>
+        <h2>Được đề xuất</h2>
+    </div>
+
+    <!-- Khung vuốt ngang chứa các thẻ game -->
+    <div class="recommended-scroll-wrapper">
+        
+        <!-- Thẻ Game 1 -->
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2LUCKYWIN.png" alt="Luckywin" class="rec-logo">
+                <!-- Thẻ này không có nhãn hoàn tiền thì để trống hoặc xóa thẻ <span> đi -->
+            </div>
+            <img src="./images/TAI XIU MD5.png" alt="Tài Xỉu MD5" class="rec-main-img">
+            <div class="rec-title">TAI XIU MD5</div>
+        </div>
+
+        <!-- Thẻ Game 2 -->
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2LUCKYWIN.png" alt="Luckywin" class="rec-logo">
+            </div>
+            <img src="./images/sd.png" alt="Xóc Đĩa" class="rec-main-img">
+            <div class="rec-title">XOC ĐIA</div>
+        </div>
+
+        <!-- Thẻ Game 3 (Có nhãn Hoàn 1.2%) -->
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2SEXY2.png" alt="Sexy Casino" class="rec-logo">
+                <span class="rec-badge">Hoàn 1.2%</span>
+            </div>
+            <img src="./images/2SEXY.png" alt="Sexy Casino" class="rec-main-img">
+            <div class="rec-title">SEXY CASINO</div>
+        </div>
+
+        <!-- Thẻ Game 4 (Có nhãn Hoàn 1.5%) -->
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2FBSPORT2.png" alt="FB Sports" class="rec-logo">
+                <span class="rec-badge">Hoàn 1.5%</span>
+            </div>
+            <img src="./images/2FBSPORT.png" alt="FB Sports" class="rec-main-img">
+            <div class="rec-title">FB SPORTS</div>
+        </div>
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2LUCKYWIN.png" alt="Luckywin" class="rec-logo">
+            </div>
+            <img src="./images/dx.png" alt="Xóc Đĩa" class="rec-main-img">
+            <div class="rec-title">TAI XIU</div>
+        </div>
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2LUCKYWIN.png" alt="Luckywin" class="rec-logo">
+            </div>
+            <img src="./images/yxx.png" alt="Xóc Đĩa" class="rec-main-img">
+            <div class="rec-title">BAU CUA</div>
+        </div>
+        <div class="rec-card">
+            <div class="rec-header">
+                <img src="./images/2LUCKYWIN.png" alt="Luckywin" class="rec-logo">
+            </div>
+            <img src="./images/LONG HO 2.png" alt="Xóc Đĩa" class="rec-main-img">
+            <div class="rec-title">LONG HO 2</div>
+        </div>
+    </div>
+</section>
+<!-- Phần Trò Chơi Phổ Biến (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-popular show-on-mobile">
+    
+    <!-- Tiêu đề -->
+    <div class="mobile-section-title">
+        <span class="orange-bar"></span>
+        <h2>Trò chơi phổ biến</h2>
+    </div>
+
+    <!-- Lưới game hiển thị 4 cột -->
+    <div class="popular-grid">
+        
+        <!-- Game 1 -->
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/74.png" alt="Mahjong Ways 2" class="pop-main-img">
+                <!-- Nút trái tim bằng ảnh tải về -->
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Đường Mạt ...</span>
+            </div>
+        </div>
+
+        <!-- Game 2 -->
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <!-- Đã xóa dải băng chéo do ảnh game đã có sẵn -->
+                <img src="./images/49.png" alt="Super Ace" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jili slot.png" alt="JILI" class="pop-provider">
+                <span class="pop-name">Super Ace</span>
+            </div>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/104.gif" alt="Wild Bandito" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Wild Đạo Tặc</span>
+            </div>
+        </div>
+
+        <!-- Game 4 -->
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/0_14042.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jdb slot.png" alt="JDB" class="pop-provider">
+                <span class="pop-name">Treasure Bowl</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/87.gif" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Kho Báu Aztec</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/71.gif" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Chiến Thắng ...</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/106.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Kỳ Lân Mác Nước</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/89.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Neko May Mắn</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/75.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Ganesha</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/135.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Quyết Chiến Tiền ...</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/103.gif" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jili slot.png" alt="Jili" class="pop-provider">
+                <span class="pop-name">Đế Quốc Hoàng ...</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/77.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jili slot.png" alt="Jili" class="pop-provider">
+                <span class="pop-name">Boxing King</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/128.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/pgslot.png" alt="PG" class="pop-provider">
+                <span class="pop-name">Truyền Thuyết Nhà..</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/74.jpg" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jili slot.png" alt="Jili" class="pop-provider">
+                <span class="pop-name">Mega Fishing</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/32.jpg" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/jili slot.png" alt="Jili" class="pop-provider">
+                <span class="pop-name">JackPot Fishing</span>
+            </div>
+        </div>
+        <div class="popular-item">
+            <div class="pop-img-wrap">
+                <img src="./images/smg_ancientfortuneszeus_icon_square_600x600_en.png" alt="Treasure Bowl" class="pop-main-img">
+                <img src="./images/tim.png" alt="Yêu thích" class="pop-fav-icon">
+            </div>
+            <div class="pop-info">
+                <img src="./images/m slot.png" alt="JDB" class="pop-provider">
+                <span class="pop-name">Treasure Bowl</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Phần Tải Ứng Dụng (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-app-download show-on-mobile">
+    
+    <!-- Tiêu đề -->
+    <div class="dl-header">
+        <!-- Có thể thay icon tải xuống màu cam ở đây -->
+        <img src="./images/tải ứng dụng.png" alt="Download" class="dl-icon">
+        <h2>TẢI ỨNG DỤNG</h2>
+    </div>
+
+    <!-- Nội dung 2 cột -->
+    <div class="dl-body">
+        
+        <!-- Cột trái: Các nút tải App -->
+        <div class="dl-buttons">
+            <!-- Tải Android -->
+            <a href="#" class="dl-btn-group">
+                <img src="./images/appandroid.png" alt="Android" class="os-icon">
+                <div class="dl-btn-info">
+                    <span>Tải App Android</span>
+                    <img src="./images/chplay.png" alt="Google Play" class="store-img">
+                </div>
+            </a>
+            
+            <!-- Tải iOS -->
+            <a href="#" class="dl-btn-group">
+                <img src="./images/appios.png" alt="iOS" class="os-icon">
+                <div class="dl-btn-info">
+                    <span>Tải App IOS</span>
+                    <img src="./images/appstore.png" alt="App Store" class="store-img">
+                </div>
+            </a>
+        </div>
+
+        <!-- Cột phải: Đại sứ thương hiệu -->
+        <div class="dl-ambassador">
+            <!-- Hình ảnh đại sứ (Bạn thay file ảnh của bạn vào đây) -->
+            <img src="./images/person.0327040f.png" alt="Đại Sứ Thương Hiệu" class="ambassador-img">
+            <div class="ambassador-text">
+                <h3>Đại Sứ Thương Hiệu</h3>
+                <p>Martin Ødegaard</p>
+                <p>Năm 2025-2026</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Phần Tin Tức (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-news show-on-mobile">
+    
+    <!-- Tiêu đề Tin Tức -->
+    <div class="news-header">
+        <!-- 1. Chèn hình nhãn TIN TỨC (Mũi tên vàng) vào đây -->
+        <img src="./images/tin tức.png" alt="Tin Tức" class="news-badge-img">
+        <h2>XOSO66 Chiến Dịch Thương Hiệu</h2>
+    </div>
+
+    <!-- 2. Thẻ nội dung bài viết (Chỉ dùng 1 ảnh nguyên bản duy nhất) -->
+    <div class="news-card">
+        <img src="./images/tin tức 2.png" alt="Nội dung tin tức" class="news-card-img">
+    </div>
+</section>
+<!-- Phần Mạng Xã Hội & Trách Nhiệm (Chỉ hiển thị trên điện thoại) -->
+<section class="mobile-social-resp show-on-mobile">
+    <div class="social-resp-container">
+        
+        <!-- Cột Trái: Mạng xã hội -->
+        <div class="social-col">
+            <h3>Theo Dõi Chúng Tôi</h3>
+            <div class="social-icons">
+                <!-- Thay tên file ảnh Telegram của bạn -->
+                <a href="#"><img src="./images/telegram.png" alt="Telegram"></a>
+                <!-- Thay tên file ảnh Facebook của bạn -->
+                <a href="#"><img src="./images/facebook.png" alt="Facebook"></a>
+            </div>
+        </div>
+
+        <!-- Cột Phải: Chơi có trách nhiệm -->
+        <div class="resp-col">
+            <h3>Chơi Có Trách Nhiệm</h3>
+            <div class="resp-icons">
+                <!-- Thay tên file ảnh cụm logo 18+ của bạn -->
+                <img src="./images/chơi có trách nhiệm.png" alt="Chơi Có Trách Nhiệm">
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Phần Footer Chứng Nhận (Chỉ hiển thị trên điện thoại) -->
+<footer class="mobile-footer show-on-mobile">
+    
+    <!-- Khung chứa ảnh 3 chứng nhận (BVI, PAGCOR, MGA) -->
+    <div class="mobile-cert-badges">
+        <!-- Thay tên file ảnh chứng nhận của bạn vào đây -->
+        <img src="./images/chứng nhận.png" alt="Các giấy phép chứng nhận">
+    </div>
+
+    <!-- Dòng bản quyền -->
+    <div class="mobile-copyright">
+        @ 2014-2026 6.1.8-260814 XOSO66.All rights reserved
+    </div>
+
+</footer>
+<!-- Thanh Điều Hướng Dưới Cùng (Chỉ hiển thị trên điện thoại - Dùng FontAwesome) -->
+<nav class="mobile-bottom-nav show-on-mobile">
+    
+    <!-- Nút 1: Thể thao -->
+    <a href="#" class="nav-item">
+        <i class="fa-solid fa-futbol"></i>
+        <span>Thể thao</span>
+    </a>
+
+    <!-- Nút 2: Khuyến mãi -->
+    <a href="#" class="nav-item">
+        <i class="fa-solid fa-gift"></i>
+        <span>Khuyến mãi</span>
+    </a>
+
+    <!-- Nút 3: Trang chủ (Nút nổi bật ở giữa) -->
+    <a href="#" class="nav-item active-home">
+        <div class="home-icon-wrap">
+            <i class="fa-solid fa-house"></i>
+        </div>
+        <span>Trang chủ</span>
+    </a>
+
+    <!-- Nút 4: Chat (Có chấm đỏ thông báo) -->
+    <a href="#" class="nav-item has-noti">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span>Chat</span>
+    </a>
+
+    <!-- Nút 5: Của tôi -->
+    <a href="#" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Của tôi</span>
+    </a>
+
+</nav>
+<!-- NỀN PHỦ TỐI MỜ (Ẩn mặc định) -->
+<div class="modal-overlay" id="modalOverlay">
+    
+    <!-- === FORM ĐĂNG NHẬP === -->
+    <div class="auth-modal" id="loginModal">
+        <div class="modal-header">
+            <span class="modal-back" onclick="closeModal()">❮ Quay</span>
+            <span class="modal-drag-icon"><i class="fa-solid fa-angles-down"></i></span>
+            <span class="modal-switch" onclick="switchModal('registerModal')">Đăng ký</span>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="loginUser" placeholder="Nhập tài khoản">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="loginPass" placeholder="6-15 ký tự chữ và số">
+                <i class="fa-solid fa-eye-slash input-action"></i>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-mobile-screen-button input-icon"></i>
+                <input type="text" id="loginPhone" placeholder="Nhập số điện thoại">
+            </div>
+
+            <!-- PHẦN BỊ THIẾU: Tùy chọn nhớ mật khẩu -->
+            <div class="modal-options">
+                <label><input type="checkbox"> Nhớ tài khoản và mật khẩu</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+
+            <button class="btn-modal-primary" onclick="handleLogin()">Click để đăng nhập</button>
+        </div>
+    </div>
+
+    <!-- === FORM ĐĂNG KÝ === -->
+    <div class="auth-modal" id="registerModal" style="display: none;">
+        <div class="modal-header">
+            <span class="modal-back" onclick="closeModal()">❮ Quay</span>
+            <span class="modal-drag-icon"><i class="fa-solid fa-angles-down"></i></span>
+            <span class="modal-switch" onclick="switchModal('loginModal')">Đăng nhập</span>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="regUser" placeholder="Nhập 6-15 chữ cái và chữ số">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="regPass" placeholder="6-15 ký tự chữ và số">
+                <i class="fa-solid fa-eye-slash input-action"></i>
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-mobile-screen-button input-icon"></i>
+                <input type="text" id="regPhone" placeholder="Nhập số điện thoại">
+            </div>
+            <div class="input-group">
+                <i class="fa-solid fa-user-circle input-icon"></i>
+                <input type="text" id="regName" placeholder="Họ tên trùng với ngân hàng rút tiền">
+            </div>
+
+            <!-- PHẦN BỊ THIẾU: Tùy chọn điều khoản 18+ -->
+            <div class="modal-options">
+                <label class="checkbox-orange"><input type="checkbox" checked> Tôi đã 18 tuổi, đã đọc và đồng ý tất cả</label>
+                <a href="#" class="text-orange">Điều khoản</a>
+            </div>
+
+            <button class="btn-modal-primary" onclick="handleRegister()">Click để đăng ký</button>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
